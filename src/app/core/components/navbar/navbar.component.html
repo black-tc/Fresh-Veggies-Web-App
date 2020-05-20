@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+
+        <a class="navbar-brand waves-effect" routerLink="/"><strong> FRESH VEGGIES <span class="text-success">NAMIBIA</span></strong></a>
+
+        <fa-icon class="navbar-toggler"
+        (click)="toggleFilterMenu()" [icon]="['fas', 'search']"></fa-icon>
+        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" (click)= "toggleMenu()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/shopping-cart" (click)="isMenuCollapsed = true">
+                        <fa-icon [icon]="['fas', 'shopping-cart']"></fa-icon> Shopping Cart
+                        <span class="badge badge-pill badge-success"
+                            *ngIf="shoppingCart$ | async as cart">{{cart.totalItemCount }}</span>
+                    </a>
+                </li> -->
+            </ul>
+
+            <ul class="navbar-nav">
+              <!-- <li class="nav-item" >
+                <a class="nav-link" routerLink="/shopping-cart" (click)="isMenuCollapsed = true">
+                    <fa-icon [icon]="['fas', 'circle']"></fa-icon>
+
+                </a>
+              </li> -->
+              <li class="nav-item" >
+                <a class="nav-link" routerLink="/shopping-cart" (click)="isMenuCollapsed = true">
+                    <fa-icon [icon]="['fas', 'shopping-cart']"></fa-icon> My Cart
+                    <span class="badge badge-pill badge-success"
+                        *ngIf="shoppingCart$ | async as cart">{{cart.totalItemCount }}</span>
+                </a>
+            </li>
+                <ng-template #notLoggedIn>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login" (click)="isMenuCollapsed = true">Login</a>
+                    </li>
+                </ng-template>
+                <li ngbDropdown *ngIf="appUser; else notLoggedIn" class="nav-item dropdown">
+
+                    <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <fa-icon [icon]="['fas', 'user-circle']"></fa-icon> {{appUser.name}}
+                    </a>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- <div class="dropdown-divider"></div> -->
+                        <a class="dropdown-item" routerLink="/my/orders" (click)="isMenuCollapsed = true">My Orders</a>
+                        <ng-container *ngIf="appUser.isAdmin">
+                            <a class="dropdown-item" routerLink="/admin/orders" (click)="isMenuCollapsed = true">Manage
+                                Orders</a>
+                            <a class="dropdown-item" routerLink="/admin/products"
+                                (click)="isMenuCollapsed = true">Manage Products</a>
+                        </ng-container>
+                        <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div id="filterMenu" [ngbCollapse]="isFilterMenuCollapsed">
+    <app-product-filter></app-product-filter>
+</div>
+
+<!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->

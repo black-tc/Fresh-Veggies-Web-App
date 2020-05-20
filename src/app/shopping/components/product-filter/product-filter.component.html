@@ -1,0 +1,27 @@
+<section class="fil">
+<img class="d-none d-md-block" src="../../../../assets/img/Fresh 4.jpg">
+<div class="sticky-top">
+
+    <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+            <!-- <span class="input-group-text" id="basic-addon1">
+                <fa-icon [icon]="['fas', 'search']"></fa-icon>
+            </span> -->
+            <input [(ngModel)]="query" type="text" class="form-control search" (keyup)="queryFilter()" placeholder="Search...">
+        </div>
+    </div>
+    <ul class="list-group search">
+      <div class="card-header">
+      <strong> <h6> Shop by category:</h6></strong>
+      </div>
+        <a class="list-group-item list-group-item-action" [class.active]="!category" routerLink="/products">All
+            Categories</a>
+        <a *ngFor="let c of categories$ | async" class="list-group-item list-group-item-action" routerLink="/products"
+            [queryParams]="{category: c.key}" [class.active]="category === c.key">
+            {{c.data.name}}
+        </a>
+    </ul>
+</div>
+
+</section>

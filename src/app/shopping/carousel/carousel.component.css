@@ -1,0 +1,31 @@
+.col-md-3{
+  display: inline-block;
+  margin-left:-4px;
+}
+.col-md-3 img{
+  width:100%;
+  height:auto;
+}
+body .carousel-indicators li{
+  background-color:red;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:red;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ngb-carousel {
+  outline: white;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .carousel-inner .no-padding {
+    margin: 0 15px; }
+
+  .carousel-title {
+    font-size: 18px;
+    margin-top: 20px; } }

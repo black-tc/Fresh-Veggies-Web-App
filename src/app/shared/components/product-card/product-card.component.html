@@ -1,0 +1,36 @@
+
+
+<div class="product-grid grid">
+<!-- <div class="product-grid grid" *ngIf="product.data.title" > -->
+  <div class="product-image">
+    <img *ngIf="product.data.imageUrl" [src]="product.data.imageUrl" class="card-img-top img-fluid"
+        alt="{{product.data.title}} image">
+        <div class="caption">
+          <div class="font-weight-bold">{{product.data.quantity}}</div>
+          <p>{{product.data.desc}}</p>
+        </div>
+        <div class="product-content">
+        <h3 class="title " >{{product.data.title}}</h3>
+        <p class="price">{{product.data.price | currency:'NAD'}}</p>
+    </div>
+    <div class="card-footer" *ngIf="showActions && shoppingCart">
+        <button *ngIf="shoppingCart.getQuantity(product) === 0 else updateQuantity" class="btn btn-success text-white btn-block"
+            (click)="addToCart()"><strong>ADD TO CART</strong></button>
+        <ng-template #updateQuantity>
+            <app-product-quantity [product]="product" [shopping-cart]="shoppingCart"></app-product-quantity>
+
+            <!-- <div class="row no-gutters">
+                <div class="col-2">
+                    <button class="btn btn-secondary btn-block" (click)="removeFromCart()" >-</button>
+                </div>
+                <div class="col text-center">
+                    <div>{{getQuantity()}} in cart</div>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-secondary btn-block" (click)="addToCart()">+</button>
+                </div>
+            </div> -->
+        </ng-template>
+    </div>
+</div>
+</div>

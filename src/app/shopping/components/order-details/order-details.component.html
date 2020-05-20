@@ -1,0 +1,46 @@
+<h1>Order Details</h1>
+<div class="" style="margin-top: 1rem;">
+    <div *ngIf="order; else noOrder" class="">
+        <h5>Date Placed: {{order.data.datePlaced | date: 'MMM dd, yyyy'}}</h5>
+        <h5>Shipped To: {{order.data.shipping.name}}</h5>
+<h5>Address: {{order.data.shipping.address}}, {{order.data.shipping.city}}</h5>
+        <br>
+
+        <h4>Items Ordered:</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col" class="text-center">Product</th>
+                    <th scope="col" class="text-center">Quantity</th>
+                    <th scope="col" class="text-center" class="text-right">Unit price</th>
+                    <th scope="col" class="text-center" class="text-right">Total price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of orderItems">
+                    <td >
+                        <div class="thumbnail" [style.backgroundImage]="'url('+item.imageUrl+')'" alt="thumbnail">
+                        </div>
+                    </td>
+                    <td scope="col" class="text-center">{{item.title}}</td>
+                    <td scope="col" class="text-center">{{item.quantity}}</td>
+                    <td class="text-right">{{item.price | currency: 'NAD'}}</td>
+                    <td class="text-right">{{item.totalPrice | currency:'NAD'}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><strong>Total Amount Paid</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th class="text-right ">{{total | currency:'NAD'}}</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <ng-template #noOrder >
+        <h5 class="text-center">Couldn't find any orders</h5>
+    </ng-template>
+</div>

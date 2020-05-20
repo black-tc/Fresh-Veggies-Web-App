@@ -1,0 +1,12 @@
+.dropdown-toggle{
+    cursor: pointer;
+}
+
+.font {
+  /* font-family: Roboto, sans-serif; */
+}
+
+nav {
+
+  transition-duration: 1.2s;
+}

@@ -1,0 +1,22 @@
+.new {
+  width: 40%;
+  height: auto;
+  position: relative ;
+  top: 12%;
+  bottom: 1%;
+  left: 30%;
+  margin-top: 2rem;
+  float: none;
+}
+
+
+.search {
+  max-width: 50%;
+  padding-bottom: 50px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}

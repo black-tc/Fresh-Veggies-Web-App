@@ -1,0 +1,29 @@
+.active {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.fil {
+  margin-top: 0.5rem !important;
+}
+
+.search {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+
+img {
+  width: 70%;
+  height: auto;
+  position: relative ;
+  /* border-radius: 5px; */
+  top: 12%;
+  /* bottom: 1%; */
+  left: 12%;
+margin-top: 2rem;
+}
+
+@media only screen and (min-width: 768px){
+    .sticky-top{
+        padding-top: 4.5rem;
+    }
+}

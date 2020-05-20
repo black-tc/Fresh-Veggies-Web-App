@@ -1,0 +1,35 @@
+.product {
+  padding-top: 50px;
+}
+
+.save {
+  width: 45%;
+  height: auto;
+   /* position: relative ; */
+  top: 0;
+  /* left: 12%; */
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.delete {
+  width: 45%;
+  height: auto;
+   /* position: relative ; */
+  top: 0;
+  left: 10%;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.error-actions {
+
+  margin: auto;
+  text-align: center;
+}
+
+.notlogged-footer button a{
+  padding: 12px 22px;
+  float: right;
+
+}

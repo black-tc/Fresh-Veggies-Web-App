@@ -1,0 +1,9 @@
+<h2>Billing Address </h2>
+<div class="row" *ngIf="cart$ | async as cart">
+    <div class="col-md-6 col-sm-12" style="margin-top: 1rem;">
+        <app-check-out-form [cart]="cart" [userId]="userId"></app-check-out-form>
+    </div>
+    <div class="col-md-6 col-sm-12" style="margin-top: 1rem;">
+        <app-shopping-cart-summary [cart]="cart"></app-shopping-cart-summary>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<h1 style="margin-top: 2rem;">My Orders</h1>
+<p class="lead">Here is a summary of all your orders:</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th></th>
+            <th scope="col" class="text-center">Customer</th>
+            <th scope="col" class="text-center">Date</th>
+            <th scope="col" class="text-center">Details</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="orders$ | async as orders">
+        <tr *ngFor="let order of orders; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+            <td scope="col" class="text-center">{{order.data.shipping.name}}</td>
+            <td scope="col" class="text-center">{{order.data.datePlaced | date: 'MMM dd, yyyy'}}</td>
+            <td scope="col" class="text-center">
+                <a [routerLink]="['/orders/',order.key]">View Order</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

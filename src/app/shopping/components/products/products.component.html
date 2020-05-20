@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="d-none d-md-block col-md-2 col-lg-2  p-0 mr-2">
+        <app-product-filter [category]="category" ></app-product-filter>
+    </div>
+    <div class="col p-0">
+
+      <app-carousel class="d-none d-md-block"></app-carousel>
+        <div class="row" *ngIf="cart$  | async as cart">
+            <div *ngFor="let p of filteredProducts" class="col-sm-12 col-md-6 col-lg-4 mt-3 ">
+                <app-product-card [product]="p" [show-actions]=true [shopping-cart]="cart"></app-product-card>
+            </div>
+        </div>
+    </div>
+</div>

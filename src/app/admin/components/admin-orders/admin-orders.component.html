@@ -1,0 +1,24 @@
+<h1 class="text-center">Admin Orders</h1>
+<p class="text-center">Here are all your orders</p>
+<table class="table table-striped" style="margin-top: 15px;">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Contact</th>
+            <!-- <th>Delivery Status</th> -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody *ngIf="orders$ | async as orders">
+        <tr *ngFor="let order of orders">
+            <td>{{order.data.shipping.name}}</td>
+            <td>{{order.data.datePlaced | date: 'MMM dd, yyyy'}}</td>
+            <td>{{order.data.shipping.phone}}</td>
+            <!-- <td></td> -->
+            <td>
+                <a [routerLink]="['/orders/',order.key]" style="color: #28a745;">More details</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
